@@ -1,7 +1,7 @@
-// STEPS TO ADD FIRST IN LL 
-// Create new node
-// New node's next = head
-// head = new Node
+// ADD IN LL
+// 1. Add First [T.C :- O(1)]
+// 2. Add Last [T.C :- O(1)]
+// 3. Add at any index [T.C :- O(N)]
 
 import java.util.*;
 public class LinkedList{
@@ -19,24 +19,75 @@ public static Node head;
 public static Node tail;
 
  //Add First Method 
+// Create new node
+// New node's next = head
+// head = new Node  
 public void addFirst(int data){  //Time complexity :- O(1)
   // step1 => Create new node
   Node newNode = new Node(data);
+  
+  // If LL is empty
+  if(head == null){
+    head = tail = newNode;
+    return;
+  }
+  // if LL is not empty
+  // Step2 => New node's next = head
+  newNode.next = head;
+  
+  // step3 => head = new Node
+  head = newNode;
+}
 
-// If LL is empty
-if(head == null){
-  head = tail = newNode;
+  
+//Add Last Method 
+// Create new node
+// tails's next = new node 
+// tail = new Node 
+public void addLast(int data){  //Time complexity :- O(1)
+  // step1 => Create new node
+  Node newNode = new Node(data);
+  
+  // If LL is empty
+  if(head == null){
+    head = tail = newNode;
+    return;
+  }
+  // if LL is not empty
+  // Step2 => tails's next = new node
+  tail.next = newNode;
+  
+  // step3 =>  tail = new Node
+  tail = newNode;
+}  
+
+
+  
+// Add at any index/middle of a LL Method  //T.C :-O(n)
+// add(index, data)
+public void add(int idx, int data){  //Time complexity :- O(N)
+  if(idx == 0){ //add at first idx
+  addFirst(data);
   return;
-}
-// if LL is not empty
-// Step2 => New node's next = head
-newNode.next = head;
+  }
+  // step1 => Create new node
+  Node newNode = new Node(data);
+  Node temp = head;
+  int i =0;
+  while(i < idx-1){
+  temp = temp.next;
+  i++;
+  }
+  // i= idx-1 , temp -> prev
+  // step2
+  newNode.next = temp.next;
+  // step3
+  temp.next = newNode;
+}  
 
-// step3 => head = new Node
-head = newNode;
-}
 
- //Printing an array 
+  
+//Printing an LL // T.C :- O(N) 
 public void print(){
     if(head == null){
         System.out.println("LL is empty");
@@ -53,19 +104,24 @@ public void print(){
   
 public static void main (String args[]){
   LinkedList ll = new LinkedList();
-  ll.addFirst(1);
   ll.print();
   ll.addFirst(2);
   ll.print();
-  ll.addFirst(3);
+  ll.addFirst(1);
   ll.print();
-  ll.addFirst(4);
+  ll.addLast(3);
+  ll.print();
+  ll.addLast(4);
+  ll.print();
+  ll.add(2,9);
   ll.print();
 }
 }
 
-// output
-// 1-> null
-// 2-> 1-> null
-// 3-> 2-> 1-> null
-// 4-> 3-> 2-> 1-> null
+// Output :-
+// LL is empty
+// 2-> null
+// 1-> 2-> null
+// 1-> 2-> 3-> null
+// 1-> 2-> 3-> 4-> null
+// 1-> 2-> 9-> 3-> 4-> null
