@@ -6,25 +6,27 @@
 import java.util.*;
 public class LinkedList{
   public static class Node{
-  int data;
-  Node next;
-
-  public Node(int data){
-    this.data = data;
-    this.next = null;
-  }
+    int data;
+    Node next;
+  
+    public Node(int data){
+      this.data = data;
+      this.next = null;
+    }
 }
 
 public static Node head;
 public static Node tail;
+public static int size;  //size of LL  
 
- //Add First Method 
+// 1. Add First Method 
 // Create new node
 // New node's next = head
 // head = new Node  
 public void addFirst(int data){  //Time complexity :- O(1)
   // step1 => Create new node
   Node newNode = new Node(data);
+  size++;  //after creating a new node increament the size
   
   // If LL is empty
   if(head == null){
@@ -40,13 +42,14 @@ public void addFirst(int data){  //Time complexity :- O(1)
 }
 
   
-//Add Last Method 
+// 2. Add Last Method 
 // Create new node
 // tails's next = new node 
 // tail = new Node 
 public void addLast(int data){  //Time complexity :- O(1)
   // step1 => Create new node
   Node newNode = new Node(data);
+  size++;
   
   // If LL is empty
   if(head == null){
@@ -63,7 +66,7 @@ public void addLast(int data){  //Time complexity :- O(1)
 
 
   
-// Add at any index/middle of a LL Method  //T.C :-O(n)
+// 3. Add at any index/middle of a LL Method  //T.C :-O(n)
 // add(index, data)
 public void add(int idx, int data){  //Time complexity :- O(N)
   if(idx == 0){ //add at first idx
@@ -72,6 +75,7 @@ public void add(int idx, int data){  //Time complexity :- O(N)
   }
   // step1 => Create new node
   Node newNode = new Node(data);
+  size++;
   Node temp = head;
   int i =0;
   while(i < idx-1){
@@ -87,7 +91,7 @@ public void add(int idx, int data){  //Time complexity :- O(N)
 
 
   
-//Printing an LL // T.C :- O(N) 
+// 4. Printing the LL      // Time complexity :- O(N) 
 public void print(){
     if(head == null){
         System.out.println("LL is empty");
@@ -97,7 +101,7 @@ public void print(){
     Node temp = head;
     while(temp!= null){
         System.out.print(temp.data + "-> ");
-        temp= temp.next;
+        temp = temp.next;
     }
     System.out.println("null");
 }  
@@ -109,12 +113,13 @@ public static void main (String args[]){
   ll.print();
   ll.addFirst(1);
   ll.print();
-  ll.addLast(3);
-  ll.print();
   ll.addLast(4);
   ll.print();
-  ll.add(2,9);
+  ll.addLast(5);
   ll.print();
+  ll.add(2,3);
+  ll.print();
+  System.out.println(ll.size); 
 }
 }
 
@@ -122,6 +127,7 @@ public static void main (String args[]){
 // LL is empty
 // 2-> null
 // 1-> 2-> null
-// 1-> 2-> 3-> null
-// 1-> 2-> 3-> 4-> null
-// 1-> 2-> 9-> 3-> 4-> null
+// 1-> 2-> 4-> null
+// 1-> 2-> 4-> 5-> null
+// 1-> 2-> 3-> 4-> 5-> null
+// 5
