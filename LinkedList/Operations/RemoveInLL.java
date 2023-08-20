@@ -21,7 +21,6 @@ public static int size;  //size of LL
 
 // 1. Remove First Method 
 // step-> head = head.next
-
 public int removeFirst() {
       if (size == 0) {
         System.out.println("List is empty");
@@ -41,6 +40,7 @@ public int removeFirst() {
       }
  }
 
+//2. Remove Last Method  
  public int removeLast() {
       if (size == 0) {
         System.out.println("List is empty");
@@ -64,21 +64,14 @@ public int removeFirst() {
         return val;
       }
 } 
-public void addFirst(int data){  //Time complexity :- O(1)
-  // step1 => Create new node
+public void addFirst(int data){  
   Node newNode = new Node(data);
-  size++;  //after creating a new node increament the size
-  
-  // If LL is empty
+  size++;  
   if(head == null){
     head = tail = newNode;
     return;
   }
-  // if LL is not empty
-  // Step2 => New node's next = head
   newNode.next = head;
-  
-  // step3 => head = new Node
   head = newNode;
 }  
 
@@ -110,6 +103,10 @@ LinkedList ll = new LinkedList();
   ll.print();
 }
 }
+
+// OUTPUT:-
+// 4-> 3-> 2-> 1-> null
+// 4-> 3-> 2-> null
 
 
 
