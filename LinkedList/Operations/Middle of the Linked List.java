@@ -5,7 +5,6 @@
 // Slow-fast Approach 
 // Time complexity: O(n)
 // Space complexity:O(1)
-// Leetcode problem Link https://leetcode.com/problems/middle-of-the-linked-list/solutions/3827431/fast-and-slow-pointers-5-lines-easy-to-read-java/
 
 class Solution {
 
