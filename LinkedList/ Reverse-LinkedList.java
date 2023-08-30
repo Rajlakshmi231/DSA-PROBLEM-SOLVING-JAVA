@@ -1,5 +1,8 @@
 // Reverse Linked List 
 // Problem Statement:- Given the head of a singly linked list, reverse the list, and return the reversed list. 
+
+
+// Time.Complexity:= O(N)
 class LinkedList {
     public ListNode reverseList(ListNode head) { 
         ListNode prev = null;
@@ -17,4 +20,4 @@ class LinkedList {
     }
 }
 
-// Time.Complexity:= O(N)
+
