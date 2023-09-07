@@ -32,7 +32,7 @@ public class DoubleLL{
     // step3:- head.prev = newNode;
     // step4:- head = newNode;
  
-    public void addFirst(int data){      
+    public void insertAtHead(int data){      
         Node newNode = new Node(data);
         size++;
         
@@ -63,6 +63,21 @@ public class DoubleLL{
        
     }
 
+  // 3.Insert At Tail
+  public void insertAtTail(int data){
+        Node newNode = new Node(data);
+        size++;
+        
+        if(head == null){
+            head = tail = newNode;
+            return;
+        }
+    tail.next = newNode;
+    newNode.prev = tail;
+    tail = newNode;
+  }
+    
+
     // print function
     public void print(){
         Node temp = head;
@@ -76,13 +91,15 @@ public class DoubleLL{
   
     public static void main(String args[]){
         DoubleLL dll = new DoubleLL();
-        dll.addFirst(3);
-        dll.addFirst(2);
-        dll.addFirst(1);
-        
+        dll.insertAtHead(3);
+        dll.insertAtHead(2);
+        dll.insertAtHead(1);
         dll.print();
       
         dll.insertAtIdx(2,4);
+        dll.print();
+
+        dll.insertAtTail(5);
         dll.print();
       
         System.out.println("size = " + dll.size);   
@@ -90,8 +107,9 @@ public class DoubleLL{
 }
 
 // Output:-
-// 1<->2<->4<->null
-// 1<->2<->3<->4<->null
-// size = 4
+// 1<->2<->3<->null
+// 1<->2<->4<->3<->null
+// 1<->2<->4<->3<->5<->null
+// size = 5
   
 
