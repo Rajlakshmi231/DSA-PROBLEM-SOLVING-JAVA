@@ -1,4 +1,5 @@
 // Remove duplicate elements in place from sorted Array
+// T.C = O(N)   S.C = O(N)
 
 class Solution {
     int remove_duplicate(int A[],int N){
