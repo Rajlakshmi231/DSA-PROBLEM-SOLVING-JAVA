@@ -1,0 +1,15 @@
+// Remove duplicate elements in place from sorted Array
+
+class Solution {
+    int remove_duplicate(int A[],int N){
+        // code here
+        int i =0;
+        for(int j =1; j<N; j++){
+            if(A[i] != A[j]){
+                i++;
+                A[i] = A[j];
+            }
+        }
+        return i + 1; //size of arr of unique elemnts
+    }
+}
