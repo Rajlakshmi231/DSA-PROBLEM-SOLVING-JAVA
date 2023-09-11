@@ -1,5 +1,6 @@
 // Implement stack using array
 
+import java.util.*;
 public class StackDs{
     public static class Stack{
       int top = -1;
@@ -35,18 +36,30 @@ public class StackDs{
     	    return ans;
   	   }
 
-      // 
-      void display(){
+        // diaplay
+        void display(){
         for(int i =0; i<= top; i++){
             System.out.print(arr[i] +" ");
         }
         System.out.println();
-      }
-
-
-  
+        }
+    }
+        
+    public static void main(String[] args){
+        Stack s = new Stack();
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        s.display();
+        
+        s.pop();
+        s.display();
+        
+        System.out.println(s.peek());   
     }
 }
 
-
-  
+// Output:- 
+        // 1 2 3 
+        // 1 2 
+        // 2
