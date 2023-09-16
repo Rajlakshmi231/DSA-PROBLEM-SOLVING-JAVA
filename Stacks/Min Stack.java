@@ -36,7 +36,7 @@ class MinStack {
 }
 
 
-// Approach 2   .C :- O(1)   S.C :-O(1) 
+// Approach 2    T.C :- O(1)   S.C :-O(1) 
 
 class MinStack {
     Stack<Long> st = new Stack<>();
