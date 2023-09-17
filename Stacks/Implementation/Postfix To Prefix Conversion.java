@@ -8,7 +8,7 @@ public class PostToPrefix{
         String S = "953+4*6/-";
         Stack<String> val = new Stack<>(); //in conversion we make our stack of string so that we can append the value not evaluate the value
       
-        // traverse from right to left
+        // traverse from left to right in postfix
         for(int i = 0; i < S.length(); i++){
             char ch = S.charAt(i);
             
