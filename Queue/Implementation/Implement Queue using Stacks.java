@@ -14,7 +14,7 @@ public class QueueDs {
         
         //add elements O(N)
         public static void add(int x) {
-            while(!s1.isEmpty()){ //if s1 is not empty then push all elements of s1 into s2.
+            while(!s1.isEmpty()){ //until s1 is not become empty push all elements of s1 into s2.
                 s2.push(s1.pop());
             }
             s1.push(x); // push(add new element) in s1
