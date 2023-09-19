@@ -1,0 +1,15 @@
+// Height of Binary Tree
+// T.C :- O(N)
+// S.C :- O(N)
+
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = maxDepth(root.left); //left Height of tree
+        int rightHeight = maxDepth(root.right); //right Height of tree
+        int maxHeight = Math.max(leftHeight, rightHeight) + 1; 
+        return maxHeight;    
+    }
+}
