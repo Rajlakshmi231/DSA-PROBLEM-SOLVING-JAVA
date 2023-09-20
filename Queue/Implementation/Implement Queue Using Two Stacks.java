@@ -1,4 +1,4 @@
-// Implement Queue using Stacks
+// Implement Queue Using Two Stacks
 
 import java.util.*;
 public class QueueDs {
