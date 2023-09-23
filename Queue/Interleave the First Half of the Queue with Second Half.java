@@ -3,7 +3,7 @@
 
 // Steps to solve : 
 // 1.Make a temporary queue and push the first half of the original queue into the temp queue.
-// 2.Till the temp queue is empty
+// 2.while the temp queue is not empty
     // !.Pop the front of the temp queue and push it to the original queue
     // 2.Pop the front of the original queue and push it to the original queue
 // 3.The original queue is converted to the interleaved queue.
@@ -13,8 +13,8 @@
 
 class Solution {
     public static ArrayList<Integer> rearrangeQueue(int N, Queue<Integer> q) {
-        Queue<Integer> firstHalf = new LinkedList<>();
-        ArrayList<Integer> arr = new ArrayList<>();
+        Queue<Integer> firstHalf = new LinkedList<>(); //create a temporary queue to store the first half of the queue
+        ArrayList<Integer> arr = new ArrayList<>(); //create an arraylist to store the ans 
        
        
        //step 1: pushing first half in queue
@@ -24,7 +24,7 @@ class Solution {
        while(!firstHalf.isEmpty()){
         //remove from firstHalf and add in original queue
            q.add(firstHalf.remove());
-        //remove from q and add in and add in q   
+        //remove from original q and add in q    
            q.add(q.remove());
            
        }
