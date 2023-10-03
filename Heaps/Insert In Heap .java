@@ -1,11 +1,12 @@
 // Insert In Heap
+//T.C :- O(logN)
 
 import java.util.*;
 public class Classroom {
     static class Heap {
         ArrayList<Integer> arr = new ArrayList<>();
         
-        public void add(int data){ //T.C O(logN)
+        public void add(int data){ 
             //add at last idx
             arr.add(data);
             
@@ -19,12 +20,9 @@ public class Classroom {
                 arr.set(par, temp);
                 
                 x = par;
-                par = (x - 1)/2;
-                
-            }
-            
+                par = (x - 1)/2;   
+            } 
         }
-        
     }
 
     public static void main(String[] args) {
