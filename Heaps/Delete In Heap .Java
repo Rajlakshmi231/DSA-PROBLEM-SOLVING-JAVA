@@ -31,24 +31,46 @@
 //   / 
 //  2   
 
+import java.util.*;
 public class deletionHeap {
 
-  static class Heap{
-    ArrayList<Integer> arr = new ArrayList<>();
+    static class Heap{
+        ArrayList<Integer> arr = new ArrayList<>();
+        
+        public void add(int data){ 
+            //add at last idx
+            arr.add(data);
+            
+            int x = arr.size() - 1; //x iss child index
+            int par = (x - 1)/2; //par index
+            
+            while(arr.get(x) < arr.get(par)){
+                //swap
+                int temp = arr.get(x);
+                arr.set(x, arr.get(par));
+                arr.set(par, temp);
+                
+                x = par;
+                par = (x - 1)/2;   
+            } 
+        }
 
-    private void heapify(int i)
-    {
+        public int peek(){
+            return arr.get(0);
+        }
+
+        private void heapify(int i){
         int minIdx = i; // Initialize largest as root
         int left = 2 * i + 1; // left = 2*i + 1
         int right = 2 * i + 2; // right = 2*i + 2
  
-        // If left child is larger than root
+        // If left child is smaller than root
         if (left < arr.size() && arr.get(minIdx) > arr.get(left)){
           minIdx = left;
         }
       
-        // If right child is larger than minIdx so far
-        if (left < arr.size() && arr.get(minIdx) > arr.get(right)){
+        // If right child is smaller than minIdx 
+        if (right < arr.size() && arr.get(minIdx) > arr.get(right)){
           minIdx = left;
         }
       
@@ -61,41 +83,43 @@ public class deletionHeap {
             // Recursively heapify the affected sub-tree
             heapify(minIdx);
         }
-    }
-
-     // Function to delete the root from Heap
-    public int remove(){
-  
-        int data = arr.get(0);
-        // Step1 :- Swap 1st and last
-        int temp = arr.get(0);
-        arr.set(0, arr.get(arr.size() - 1));
-        arr.set(arr.size() - 1), temp);
+    
+         // Function to delete the root from Heap
+        public int remove(){
       
-        // Step2 :- delete last
-        arr.remove(arr.size() - 1);
+            int data = arr.get(0);
     
-        // Step3 :- heapify 
-        heapify(0);
-        return data;
+            // Step1 :- Swap 1st and last
+            int temp = arr.get(0);
+            arr.set(0, arr.get(arr.size() - 1));
+            arr.set((arr.size() - 1), temp);
+          
+            // Step2 :- delete last
+            arr.remove(arr.size() - 1);
+        
+            // Step3 :- heapify 
+            heapify(0);
+            return data;
+        }
+        
+        public boolean isEmpty(){
+            return arr.size() == 0;
+        }
+        
     }
     
-     public static void main(String args[]) {
+    public static void main(String args[]) {
         Heap h = new Heap();
-        h.insert( 3);
-        h.insert( 4);
-        h.insert(array, 9);
-        h.insert(array, 5);
-        h.insert(array, 2);
-    
-        System.out.println("Max-Heap array: ");
-        h.printArray(array, size);
-    
-        h.deleteNode(array, 4);
-        System.out.println("After deleting an element: ");
-        h.printArray(array, size);
-      }
+        h.add( 3);
+        h.add( 4);
+        h.add( 1);
+        h.add( 5);
+        while(!h.isEmpty()){
+           System.out.println(h.peek());
+           h.remove();
+        }
     }
+}
  
 
 
