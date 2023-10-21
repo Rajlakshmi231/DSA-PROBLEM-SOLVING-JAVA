@@ -22,3 +22,30 @@ class Solution {
         return -1;   
     }
 }
+
+
+//Solution 2 :-
+T.C :- O(logN)
+class Solution {
+    public int peakIndexInMountainArray(int[] arr) {
+        int s =0, e = arr.length - 1;
+        
+        while(s <= e){
+            int mid = e +(s-e)/2;
+
+            //case1 :- Check mid is peak element 
+            if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]){
+                return mid;
+            }
+            // case2 :- right side move
+            else if(arr[mid] > arr[mid - 1]){
+                s = mid + 1;
+            }
+            // case2 :- left side move 
+            else {
+                e = mid - 1;
+            }
+        }
+        return -1;
+    }
+}
