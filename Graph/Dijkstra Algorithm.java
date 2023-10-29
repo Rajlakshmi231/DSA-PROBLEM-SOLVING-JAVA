@@ -17,7 +17,6 @@ class Solution{
         }
     }
     
-    
     static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S){
         int[] dist = new int[V];
         boolean[] visited = new boolean[V];
@@ -51,7 +50,6 @@ class Solution{
                     int wt = edge.get(1);
                     
                     // now campare if we are reaching the node faster
-                    
                     if (dist[curr.n] + wt < dist[nbr]) {
                         dist[nbr] = dist[curr.n] + wt;
                         pq.add(new Pair(nbr, dist[nbr]));
@@ -59,7 +57,6 @@ class Solution{
                 }
             }
         }
-        
         return dist;
     }
 }
