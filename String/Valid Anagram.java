@@ -3,16 +3,13 @@
 // S.C :- O(1)
 
 import java.util.*;
-public class Main
-{
-public static String SortString(String str)
-  {
+public class Main{
+public static String SortString(String str){
     char c[] = str.toCharArray();
     Arrays.sort(c);
     return new String(c);
   }
-public static boolean checkAnagrams(String str1, String str2)
-  {
+public static boolean checkAnagrams(String str1, String str2){
     // Case 1: when both of the strings have different lengths
     if (str1.length() != str2.length())
       return false;
@@ -21,15 +18,13 @@ public static boolean checkAnagrams(String str1, String str2)
     str2 = SortString(str2);
  
     // Case 2: check if every character of str1 and str2 matches with each other
-    for (int i = 0; i < str1.length(); i++)
-    {
+    for (int i = 0; i < str1.length(); i++){
       if (str1.charAt(i) != str2.charAt(i))
         return false;
     }
     return true;
-  }
-public static void main(String args[])
-  {
+ }
+public static void main(String args[]){
     String Str1 = "INTEGER";
     String Str2 = "TEGERNI";
     System.out.println(checkAnagrams(Str1, Str2));
