@@ -64,3 +64,57 @@ public class Classroom{
           // 1
           // 3
           // 4
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Using  ArrayList<ArrayList<Integer>>
+
+import java.io.*;
+import java.util.*;
+
+public class Classroom{
+    
+    public static void main(String[] args){
+        int n =3, m=3;
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+        
+        //n + 1
+        for(int i =0; i <=n; i++){
+           adj.add(new ArrayList<Integer>());
+        }
+        
+        /* For adjacency list for undirected graph
+        adj.get(u).add(v);
+        adj.get(v).add(u);
+        
+        For adjacency list for directed graph we connect one edge like this (edge u ---> v)
+        adj.get(u).add(v);
+        
+        */
+        
+        //edge 1---2
+        adj.get(1).add(2); //get the arrylist at the first index and store 2
+        adj.get(2).add(1);
+        
+        //edge 2---3
+        adj.get(2).add(3);
+        adj.get(3).add(2);
+        
+        //edge 1---3
+        adj.get(1).add(3);
+        adj.get(3).add(1);
+         
+        //print all the edges     adjacency list for undirected graph
+        for(int i =1; i <= n; i++){
+            for(int j =0; j < adj.get(i).size(); j++){
+                System.out.print(adj.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Output :-
+        // 2 3 
+        // 1 3 
+        // 2 1
