@@ -31,8 +31,7 @@ class Solution {
             if(!vis[i]){
                 q.add(i);
                 vis[i] = true;
-            }
-            
+            }  
         }
         return bfs;
     }
