@@ -84,60 +84,51 @@ public static void main(String[] args)
 
 import java.io.*;
 class Test{
-static private int secondSmallest(int[] arr, int n){
-	if (n < 2)
-	{
-		return -1;
-	}
-	int small = Integer.MAX_VALUE;
-	int second_small = Integer.MAX_VALUE;
-	int i;
-	for (i = 0; i < n; i++)
-	{
-	   if (arr[i] < small)
-	   {
-		  second_small = small;
-		  small = arr[i];
+static private int secondSmallest(int[] arr, int n)
+{
+	if (n < 2) return -1;
+	
+	int smallest = Integer.MAX_VALUE;
+	int second_Smallest = Integer.MAX_VALUE;
+	
+	for (int i = 0; i < n; i++){
+	   if (arr[i] < smallest){
+		  second_Smallest = smallest;
+		  smallest = arr[i];
 	   }
-	   else if (arr[i] < second_small && arr[i] != small)
-	   {
-		  second_small = arr[i];
+	   else if (arr[i] < second_Smallest && arr[i] != smallest){
+		  second_Smallest = arr[i];
 	   }
 	}
-   return second_small;
+   return second_Smallest;
 }
+	
 static private int secondLargest(int[] arr, int n)
 {
-	if(n<2)
-	return -1;
-	int large = Integer.MIN_VALUE;
-	int second_large = Integer.MIN_VALUE;
-	int i;
-	for (i = 0; i < n; i++)
-	{
-		if (arr[i] > large)
-		{
-			second_large = large;
-			large = arr[i];
-		}
-
-		else if (arr[i] > second_large && arr[i] != large)
-		{
-			second_large = arr[i];
-		}
-	}
-	return second_large;
+	if(n<2)	return -1;
+	int largest = Integer.MIN_VALUE;
+	int second_Largest = Integer.MIN_VALUE;
+	
+	for(int i =0; i<arr.length; i++){
+            if(arr[i] > largest){
+                second_Largest = largest;
+                largest = arr[i];
+            }
+            else if(secLargest > arr[i] && arr[i] != largest){
+                second_Largest = arr[i];   
+            }
+        }
+        return second_Largest;
 }
 
 public static void main(String[] args)
 {
 	int[] arr = {1, 2, 4, 7, 7, 5};
 	int n = arr.length;
-		int sS = secondSmallest(arr, n);
-		int sL = secondLargest(arr, n);
+	int sS = secondSmallest(arr, n);
+	int sL = secondLargest(arr, n);
 	System.out.println("Second smallest is "+sS);
 	System.out.println("Second largest is "+sL);
 }
-
 }
 
