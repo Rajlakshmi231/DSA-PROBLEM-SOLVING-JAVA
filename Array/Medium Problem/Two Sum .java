@@ -5,7 +5,11 @@
 // 2nd variant: Return indices of the two numbers such that their sum is equal to the target. Otherwise, we will return {-1, -1}.
 // Note: You are not allowed to use the same element twice. Example: If the target is equal to 6 and num[1] = 3, then nums[1] + nums[1] = target is not a solution.
 
-// Naive Approach(Brute-force approach): 
+// Naive Approach(Brute-force approach):
+// Time Complexity: O(N2), where N = size of the array.
+// Reason: There are two loops(i.e. nested) each running for approximately N times.
+// Space Complexity: O(1) as we are not using any extra space.
+
 import java.util.*;
 public class Solution {
     public static String twoSum(int n, int []arr, int target) {
@@ -24,11 +28,9 @@ public class Solution {
         String ans = twoSum(n, arr, target);
         System.out.println("This is the answer for variant 1: " + ans);
     }
-
  }
   
 // Output: This is the answer for variant 1: YES
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Time Complexity: O(N2), where N = size of the array.
-// Reason: There are two loops(i.e. nested) each running for approximately N times.
-// Space Complexity: O(1) as we are not using any extra space.
+
