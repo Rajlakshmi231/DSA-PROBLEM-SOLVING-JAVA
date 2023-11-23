@@ -1,4 +1,5 @@
 // Recrsive Approach Of Binary Search
+// T.C :- O(N)     S.C :- O(1)
 
 import java.util.*;
 public class BinarySearch{
@@ -28,15 +29,13 @@ public class BinarySearch{
         BinarySearch bs = new BinarySearch();
         int arr[] = {3, 4, 5, 6, 7, 8, 9};
         int key = 7;
-        int s =0, e = arr.length - 1;
+        int s = 0, e = arr.length - 1;
         
-        int result = bs.binarySearch(arr, 0, arr.length - 1, key);
+        int result = binarySearch(arr, 0, arr.length - 1, key);
         if (result == -1)
-            System.out.println(
-                "Element is not present in array");
+            System.out.println("Element is not present in array");
         else
-            System.out.println(
-                "Element is present at index " + result);
+            System.out.println("Element is present at index " + result);
     }
 }
 
