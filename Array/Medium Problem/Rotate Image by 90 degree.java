@@ -1,5 +1,27 @@
 // Rotate Image by 90 degree
-// Approach:
+
+// Approach 1 (Brute Force)
+// T.C :- O(n^2), where n is the size of the matrix.
+// S.C :- O(n^2)
+
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+        int rotated[][] = new int[n][n];
+        for(int i =0; i<n; i++){
+            for(int j =0; j<n; j++){
+               rotated[j][n-i-1] = matrix[i][j]; 
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            System.arraycopy(rotated[i], 0, matrix[i], 0, n);
+        }  
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Approach 2 (Optimal Approach):
 // Step 1: Transpose the matrix. (transposing means changing columns to rows and rows to columns)
 // Step 2: Reverse each row of the matrix.
 
