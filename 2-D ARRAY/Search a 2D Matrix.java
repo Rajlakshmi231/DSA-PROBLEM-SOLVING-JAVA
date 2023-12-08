@@ -1,27 +1,8 @@
 // Search a 2D Matrix
-class Solution {
-    public boolean searchMatrix(int[][] matrix, int target) {
-        int row =0, col = matrix[0].length - 1;
-        while(row < matrix.length && col >= 0){
-            if(matrix[row][col] == target){
-                return true;
-            }
-            else if(target < matrix[row][col]){
-                col--;
-            }
-            else{
-                row++;
-            }
-        }
-        return false;
-    }
-}
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 // Binary Search Approach
 // T.C :- O(log(NxM))
-// S.C :- O(1)     
+// S.C :- O(1) 
+
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         int row =matrix.length, col = matrix[0].length;
