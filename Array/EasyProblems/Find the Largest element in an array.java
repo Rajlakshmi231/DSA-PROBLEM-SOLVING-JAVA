@@ -21,8 +21,7 @@ public class Main {
 The Largest element in the array is: 5
 The Largest element in the array is: 10 */
 
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Optimal Approach   T.C: O(N)   S.C: O(!)
 
