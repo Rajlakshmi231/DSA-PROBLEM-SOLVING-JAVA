@@ -1,9 +1,11 @@
  // Valid Anagram
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 // T.C :- O(nlogn) since sorting function requires nlogn iterations.
 // S.C :- O(1)
 
 import java.util.*;
 public class Main{
+ 
 public static String SortString(String str){
     char c[] = str.toCharArray();
     Arrays.sort(c);
