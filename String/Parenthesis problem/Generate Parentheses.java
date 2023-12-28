@@ -2,31 +2,17 @@
 
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> [] dp = new List[n+1];
-        dp[0] = Arrays.asList("");
-        dp[1] = Arrays.asList("()");
-
-        for(int i=2; i<=n; i++) {
-            dp[i] = new ArrayList<>();
-
-            int inner = i-1;
-            int outer = 0;
-
-            while(inner >= 0 && outer <=i-1) {
-                for(String in : dp[inner]) {
-                    for(String out : dp[outer]) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("(");
-                        sb.append(in);
-                        sb.append(")");
-                        sb.append(out);
-                        dp[i].add(sb.toString());
-                    }
-                }
-                inner--;
-                outer++;
-            }
+        List<String> result = new ArrayList<>();
+        findAll("(", 1, 0, result, n);
+        return result;
+    }
+    //Recursive function
+    void findAll(String curr, int ob, int cb,List<String> result, int n ){
+        if(curr.length() == 2*n){
+            result.add(curr);
+            return;
         }
-        return dp[n];
+        if(ob < n)  findAll(curr+"(", ob+1,cb, result, n );
+        if(cb < ob)  findAll(curr+")", ob ,cb+1, result, n );
     }
 }
